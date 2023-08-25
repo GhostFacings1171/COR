@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de blocos de cores</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .quadrado {
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      border: 1px solid black;
+    }
+
+    .bloco {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="quadrado1">
+      <div class="quadrado"></div>
+    </div>
+    <div id="quadrado2">
+      <div class="quadrado"></div>
+    </div>
+    <div class="bloco">
+      <input type="color" id="cor1" name="cor1">
+    </div>
+    <div class="bloco">
+      <input type="color" id="cor2" name="cor2">
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Obtém os elementos dos blocos de cores
+      var bloco1 = $("#cor1");
+      var bloco2 = $("#cor2");
+      var quadrado1 = $("#quadrado1 .quadrado");
+      var quadrado2 = $("#quadrado2 .quadrado");
+
+      // Atribui um evento de mudança ao input do bloco 1
+      bloco1.change(function() {
+        // Obtém a cor selecionada do input
+        var cor1 = bloco1.val();
+
+        // Altera a cor do quadrado 1
+        quadrado1.css("background-color", cor1);
+      });
+
+      // Atribui um evento de mudança ao input do bloco 2
+      bloco2.change(function() {
+        // Obtém a cor selecionada do input
+        var cor2 = bloco2.val();
+
+        // Altera a cor do quadrado 2
+        quadrado2.css("background-color", cor2);
+      });
+    });
+  </script>
+</body>
+</html>
